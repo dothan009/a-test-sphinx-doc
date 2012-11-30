@@ -1,0 +1,155 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>adg服务管理文档 &mdash; adg 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="adg 1.0 documentation" href="index.html" />
+    <link rel="prev" title="Welcome to adg’s documentation!" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to adg’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">adg 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="adg">
+<h1>adg服务管理文档<a class="headerlink" href="#adg" title="Permalink to this headline">¶</a></h1>
+<p>服务管理原型设计、服务对象管理</p>
+<div class="section" id="id1">
+<h2>原型设计<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>服务管理主要对应L4和L7两个网络层：</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">L4：tcp</span> <span class="pre">udp</span> <span class="pre">htpp</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">L7:</span> <span class="pre">tcp</span> <span class="pre">http</span> <span class="pre">ssl</span> <span class="pre">https</span></tt></li>
+</ul>
+</div></blockquote>
+<p>服务可以没有名称，在服务均衡中要用到服务配置（链路+服务）可以快速添加服务。在涉及到的L7层的服务时要加密，需要上传加密证书（enceryptionCertificate），并且选择加密证书的版本。如果是L4层的下面的上传证书字段不显示。</p>
+</div></blockquote>
+<img alt="http://pic.yupoo.com/fuluoxinchen/Cs6FGHZ2/medish.jpg" src="http://pic.yupoo.com/fuluoxinchen/Cs6FGHZ2/medish.jpg" />
+</div>
+<div class="section" id="id2">
+<h2>服务对象管理<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>数据库字段设计</li>
+</ol>
+<blockquote>
+<div><p><strong>YML格式定义</strong></p>
+<div class="highlight-python"><pre>id:                     ~
+serviceName:            {type:varchar(255)}
+protocol:               {type:varchar(255), required: true}
+port:                   {type:integer, required: true}
+encryptionCertificate:  {type:varchar(255)}
+protocolVersion:        {type:varchar(255)}
+clientAuthentic:        {type:boolean}</pre>
+</div>
+</div></blockquote>
+<ol class="arabic simple">
+<li>编码</li>
+</ol>
+<blockquote>
+<div>service表内的数据进行相关的操作，包括添加、删除</div></blockquote>
+</div>
+<div class="section" id="inline-markup">
+<h2>Inline Markup<a class="headerlink" href="#inline-markup" title="Permalink to this headline">¶</a></h2>
+<p>Words can have <em>emphasis in italics</em> or be <strong>bold</strong> and you can define
+code samples with back quotes, like when you talk about a command: <tt class="docutils literal"><span class="pre">sudo</span></tt>
+gives you super user powers!</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">adg服务管理文档</a><ul>
+<li><a class="reference internal" href="#id1">原型设计</a></li>
+<li><a class="reference internal" href="#id2">服务对象管理</a></li>
+<li><a class="reference internal" href="#inline-markup">Inline Markup</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to adg&#8217;s documentation!</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/example.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to adg’s documentation!"
+             >previous</a> |</li>
+        <li><a href="index.html">adg 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Evenvi.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
