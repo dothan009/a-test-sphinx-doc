@@ -11,7 +11,9 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   example
+   service 
+   service_view
+
 
 
 Indices and tables
